@@ -38,11 +38,11 @@ const SignIn = () => {
     // Mock login - in real app, this would authenticate with backend
     const mockUser = {
       id: "1",
-      name: "John Doe",
+      name: "Mohammad Yusuf Malik",
       email: formData.email,
       userType: formData.userType,
-      college: "Stanford University",
-      department: "Computer Science",
+      college: "bbditm",
+      department: "information technology",
       graduationYear: 2020,
       currentPosition: "Software Engineer at Google",
       bio: "Passionate software engineer with 4+ years of experience in full-stack development.",
