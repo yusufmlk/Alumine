@@ -2441,7 +2441,7 @@
 
   @media (width >= 40rem) {
     .sm\:block {
-      margin-right: 10px;
+      margin-right: calc(var(--spacing) * 5);
       display: block;
     }
   }
