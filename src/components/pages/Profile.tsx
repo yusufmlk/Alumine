@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useAuth } from '../../App';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { Button } from '../ui/button';
-import { Input } from '../ui/input';
-import { Textarea } from '../ui/textarea';
-import { Badge } from '../ui/badge';
-import { Separator } from '../ui/separator';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
-import { Label } from '../ui/label';
-import { 
-  Edit, 
-  MapPin, 
-  Calendar as CalendarIcon, 
-  Briefcase, 
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useAuth } from "../../App";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Badge } from "../ui/badge";
+import { Separator } from "../ui/separator";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import { Label } from "../ui/label";
+import {
+  Edit,
+  MapPin,
+  Calendar as CalendarIcon,
+  Briefcase,
   GraduationCap,
   Award,
   Plus,
@@ -24,101 +30,127 @@ import {
   Linkedin,
   Globe,
   Users,
-  MessageCircle
-} from 'lucide-react';
+  MessageCircle,
+} from "lucide-react";
 
 const Profile = () => {
   const { userId } = useParams();
   const { user } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
   const [editedProfile, setEditedProfile] = useState(user);
-  
+
   // Determine if this is the current user's profile
   const isOwnProfile = !userId || userId === user?.id;
-  const profileUser = isOwnProfile ? user : {
-    // Mock data for other user's profile
-    id: userId,
-    name: 'Sarah Johnson',
-    email: 'sarah.johnson@email.com',
-    userType: 'alumni' as const,
-    profileImage: 'https://images.unsplash.com/photo-1494790108755-2616b85c16c6?w=300&h=300&fit=crop&crop=face',
-    college: 'Stanford University',
-    department: 'Computer Science',
-    graduationYear: 2020,
-    currentPosition: 'Senior Software Engineer at Google',
-    bio: 'Passionate software engineer with 4+ years of experience in full-stack development. I love building scalable systems and mentoring junior developers.',
-    skills: ['React', 'Node.js', 'Python', 'Machine Learning', 'AWS', 'Docker'],
-    experience: [
-      {
-        title: 'Senior Software Engineer',
-        company: 'Google',
-        duration: '2022 - Present',
-        description: 'Leading development of cloud infrastructure and ML systems'
-      },
-      {
-        title: 'Software Engineer',
-        company: 'Microsoft',
-        duration: '2020 - 2022',
-        description: 'Developed web applications and APIs for Azure services'
-      }
-    ],
-    achievements: [
-      {
-        title: 'Outstanding Graduate Award',
-        description: 'Received for academic excellence and research contributions',
-        date: '2020-05-15'
-      },
-      {
-        title: 'Google Cloud Certified',
-        description: 'Professional Cloud Architect certification',
-        date: '2023-01-10'
-      }
-    ],
-    cgpa: 3.9,
-    linkedinProfile: 'https://linkedin.com/in/sarahjohnson'
-  };
+  const profileUser = isOwnProfile
+    ? user
+    : {
+        // Mock data for other user's profile
+        id: userId,
+        name: "mohammad yusuf malik",
+        email: "yusufmlk@bbdnitm.ac.in",
+        userType: "alumni" as const,
+        profileImage:
+          "C:/Users/yusuf/OneDrive/Desktop/alumine/src/1758197371770.jpeg",
+        college: "bbditm",
+        department: "Information technology",
+        graduationYear: 2020,
+        currentPosition: "Senior Software Engineer at Google",
+        bio: "Passionate software engineer with 4+ years of experience in full-stack development. I love building scalable systems and mentoring junior developers.",
+        skills: [
+          "React",
+          "Node.js",
+          "Python",
+          "Machine Learning",
+          "AWS",
+          "Docker",
+        ],
+        experience: [
+          {
+            title: "Senior Software Engineer",
+            company: "Google",
+            duration: "2022 - Present",
+            description:
+              "Leading development of cloud infrastructure and ML systems",
+          },
+          {
+            title: "Software Engineer",
+            company: "Microsoft",
+            duration: "2020 - 2022",
+            description:
+              "Developed web applications and APIs for Azure services",
+          },
+        ],
+        achievements: [
+          {
+            title: "Outstanding Graduate Award",
+            description:
+              "Received for academic excellence and research contributions",
+            date: "2020-05-15",
+          },
+          {
+            title: "Google Cloud Certified",
+            description: "Professional Cloud Architect certification",
+            date: "2023-01-10",
+          },
+        ],
+        cgpa: 3.9,
+        linkedinProfile:
+          "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile",
+      };
 
   // Mock additional data for different user types
   const additionalData = {
     student: {
       cgpa: 3.7,
       credits: 128,
-      rank: 'Dean\'s List',
+      rank: "Dean's List",
       achievements: [
-        { title: 'Hackathon Winner', description: 'First place in university hackathon', date: '2024-02-15' },
-        { title: 'Research Assistant', description: 'Working on AI research project', date: '2024-01-10' }
-      ]
+        {
+          title: "Hackathon Winner",
+          description: "First place in university hackathon",
+          date: "2024-02-15",
+        },
+        {
+          title: "Research Assistant",
+          description: "Working on AI research project",
+          date: "2024-01-10",
+        },
+      ],
     },
     faculty: {
-      expertise: ['Machine Learning', 'Computer Vision', 'Deep Learning'],
+      expertise: ["Machine Learning", "Computer Vision", "Deep Learning"],
       researchProjects: 3,
       publications: 25,
-      courses: ['CS229 - Machine Learning', 'CS231n - Computer Vision']
+      courses: ["CS229 - Machine Learning", "CS231n - Computer Vision"],
     },
     college: {
       facultyCount: 150,
       studentCount: 5000,
-      departments: ['Computer Science', 'Electrical Engineering', 'Mathematics'],
-      established: 1885
-    }
+      departments: [
+        "Computer Science",
+        "Electrical Engineering",
+        "Mathematics",
+      ],
+      established: 1885,
+    },
   };
 
   const handleSaveProfile = () => {
-    console.log('Saving profile:', editedProfile);
+    console.log("Saving profile:", editedProfile);
     setIsEditing(false);
-    alert('Profile updated successfully!');
+    alert("Profile updated successfully!");
   };
 
-  const [newSkill, setNewSkill] = useState('');
+  const [newSkill, setNewSkill] = useState("");
   const [isAddingSkill, setIsAddingSkill] = useState(false);
 
   const handleAddSkill = () => {
     if (newSkill.trim() && editedProfile) {
       setEditedProfile({
         ...editedProfile,
-        skills: [...(editedProfile.skills || []), newSkill.trim()]
+        skills: [...(editedProfile.skills || []), newSkill.trim()],
       });
-      setNewSkill('');
+      setNewSkill("");
       setIsAddingSkill(false);
     }
   };
@@ -127,7 +159,9 @@ const Profile = () => {
     if (editedProfile) {
       setEditedProfile({
         ...editedProfile,
-        skills: editedProfile.skills?.filter(skill => skill !== skillToRemove) || []
+        skills:
+          editedProfile.skills?.filter((skill) => skill !== skillToRemove) ||
+          [],
       });
     }
   };
@@ -137,7 +171,9 @@ const Profile = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-xl font-semibold mb-2">Profile Not Found</h2>
-          <p className="text-muted-foreground">The requested profile could not be found.</p>
+          <p className="text-muted-foreground">
+            The requested profile could not be found.
+          </p>
         </div>
       </div>
     );
@@ -153,15 +189,21 @@ const Profile = () => {
               <Avatar className="h-32 w-32 mx-auto md:mx-0">
                 <AvatarImage src={profileUser.profileImage} />
                 <AvatarFallback className="text-2xl">
-                  {profileUser.name?.split(' ').map(n => n[0]).join('').toUpperCase()}
+                  {profileUser.name
+                    ?.split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .toUpperCase()}
                 </AvatarFallback>
               </Avatar>
-              
+
               <div className="flex-1 text-center md:text-left">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
                     <h1 className="text-2xl font-bold">{profileUser.name}</h1>
-                    <p className="text-lg text-muted-foreground">{profileUser.currentPosition}</p>
+                    <p className="text-lg text-muted-foreground">
+                      {profileUser.currentPosition}
+                    </p>
                     <div className="flex items-center justify-center md:justify-start space-x-2 mt-2">
                       <Badge variant="outline">{profileUser.userType}</Badge>
                       <div className="flex items-center text-sm text-muted-foreground">
@@ -170,10 +212,10 @@ const Profile = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   {isOwnProfile ? (
-                    <Button 
-                      variant="outline" 
+                    <Button
+                      variant="outline"
                       onClick={() => setIsEditing(true)}
                       className="mt-4 md:mt-0"
                     >
@@ -193,9 +235,9 @@ const Profile = () => {
                     </div>
                   )}
                 </div>
-                
+
                 <p className="text-muted-foreground mb-4">{profileUser.bio}</p>
-                
+
                 <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center">
                     <MapPin className="h-4 w-4 mr-1" />
@@ -214,7 +256,12 @@ const Profile = () => {
                   {profileUser.linkedinProfile && (
                     <div className="flex items-center">
                       <Linkedin className="h-4 w-4 mr-1" />
-                      <a href={profileUser.linkedinProfile} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                      <a
+                        href={profileUser.linkedinProfile}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                      >
                         LinkedIn
                       </a>
                     </div>
@@ -229,7 +276,7 @@ const Profile = () => {
           {/* Left Column */}
           <div className="lg:col-span-2 space-y-6">
             {/* User Type Specific Section */}
-            {profileUser.userType === 'alumni' && (
+            {profileUser.userType === "alumni" && (
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
@@ -240,10 +287,15 @@ const Profile = () => {
                 <CardContent>
                   <div className="space-y-4">
                     {profileUser.experience?.map((exp, index) => (
-                      <div key={index} className="border-l-2 border-primary pl-4">
+                      <div
+                        key={index}
+                        className="border-l-2 border-primary pl-4"
+                      >
                         <h4 className="font-medium">{exp.title}</h4>
                         <p className="text-muted-foreground">{exp.company}</p>
-                        <p className="text-sm text-muted-foreground">{exp.duration}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {exp.duration}
+                        </p>
                         <p className="text-sm mt-2">{exp.description}</p>
                       </div>
                     ))}
@@ -252,7 +304,7 @@ const Profile = () => {
               </Card>
             )}
 
-            {profileUser.userType === 'student' && (
+            {profileUser.userType === "student" && (
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
@@ -272,7 +324,9 @@ const Profile = () => {
                       <div className="text-2xl font-bold text-primary">
                         {additionalData.student.credits}
                       </div>
-                      <div className="text-sm text-muted-foreground">Credits</div>
+                      <div className="text-sm text-muted-foreground">
+                        Credits
+                      </div>
                     </div>
                     <div className="text-center">
                       <div className="text-sm font-bold text-primary">
@@ -285,7 +339,7 @@ const Profile = () => {
               </Card>
             )}
 
-            {profileUser.userType === 'faculty' && (
+            {profileUser.userType === "faculty" && (
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
@@ -299,7 +353,9 @@ const Profile = () => {
                       <h4 className="font-medium mb-2">Areas of Expertise</h4>
                       <div className="flex flex-wrap gap-2">
                         {additionalData.faculty.expertise.map((area, index) => (
-                          <Badge key={index} variant="secondary">{area}</Badge>
+                          <Badge key={index} variant="secondary">
+                            {area}
+                          </Badge>
                         ))}
                       </div>
                     </div>
@@ -308,13 +364,17 @@ const Profile = () => {
                         <div className="text-xl font-bold text-primary">
                           {additionalData.faculty.publications}
                         </div>
-                        <div className="text-sm text-muted-foreground">Publications</div>
+                        <div className="text-sm text-muted-foreground">
+                          Publications
+                        </div>
                       </div>
                       <div>
                         <div className="text-xl font-bold text-primary">
                           {additionalData.faculty.researchProjects}
                         </div>
-                        <div className="text-sm text-muted-foreground">Active Research</div>
+                        <div className="text-sm text-muted-foreground">
+                          Active Research
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -322,7 +382,7 @@ const Profile = () => {
               </Card>
             )}
 
-            {profileUser.userType === 'college' && (
+            {profileUser.userType === "college" && (
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
@@ -336,20 +396,26 @@ const Profile = () => {
                       <div className="text-xl font-bold text-primary">
                         {additionalData.college.facultyCount}
                       </div>
-                      <div className="text-sm text-muted-foreground">Faculty Members</div>
+                      <div className="text-sm text-muted-foreground">
+                        Faculty Members
+                      </div>
                     </div>
                     <div>
                       <div className="text-xl font-bold text-primary">
                         {additionalData.college.studentCount}
                       </div>
-                      <div className="text-sm text-muted-foreground">Students</div>
+                      <div className="text-sm text-muted-foreground">
+                        Students
+                      </div>
                     </div>
                   </div>
                   <div>
                     <h4 className="font-medium mb-2">Departments</h4>
                     <div className="flex flex-wrap gap-2">
                       {additionalData.college.departments.map((dept, index) => (
-                        <Badge key={index} variant="outline">{dept}</Badge>
+                        <Badge key={index} variant="outline">
+                          {dept}
+                        </Badge>
                       ))}
                     </div>
                   </div>
@@ -367,12 +433,17 @@ const Profile = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {(profileUser.userType === 'student' ? additionalData.student.achievements : profileUser.achievements)?.map((achievement, index) => (
+                  {(profileUser.userType === "student"
+                    ? additionalData.student.achievements
+                    : profileUser.achievements
+                  )?.map((achievement, index) => (
                     <div key={index} className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-primary rounded-full mt-3"></div>
                       <div className="flex-1">
                         <h4 className="font-medium">{achievement.title}</h4>
-                        <p className="text-sm text-muted-foreground">{achievement.description}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {achievement.description}
+                        </p>
                         <p className="text-xs text-muted-foreground mt-1">
                           {new Date(achievement.date).toLocaleDateString()}
                         </p>
@@ -392,8 +463,8 @@ const Profile = () => {
                 <div className="flex items-center justify-between">
                   <CardTitle>Skills</CardTitle>
                   {isOwnProfile && (
-                    <Button 
-                      variant="ghost" 
+                    <Button
+                      variant="ghost"
                       size="sm"
                       onClick={() => setIsAddingSkill(true)}
                     >
@@ -405,28 +476,40 @@ const Profile = () => {
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {profileUser.skills?.map((skill, index) => (
-                    <Badge 
-                      key={index} 
-                      variant="secondary" 
-                      className={isOwnProfile && isEditing ? 'cursor-pointer' : ''}
-                      onClick={() => isOwnProfile && isEditing && handleRemoveSkill(skill)}
+                    <Badge
+                      key={index}
+                      variant="secondary"
+                      className={
+                        isOwnProfile && isEditing ? "cursor-pointer" : ""
+                      }
+                      onClick={() =>
+                        isOwnProfile && isEditing && handleRemoveSkill(skill)
+                      }
                     >
                       {skill}
-                      {isOwnProfile && isEditing && <span className="ml-1">×</span>}
+                      {isOwnProfile && isEditing && (
+                        <span className="ml-1">×</span>
+                      )}
                     </Badge>
                   ))}
                 </div>
-                
+
                 {isAddingSkill && (
                   <div className="mt-4 flex space-x-2">
                     <Input
                       placeholder="Add a skill"
                       value={newSkill}
                       onChange={(e) => setNewSkill(e.target.value)}
-                      onKeyPress={(e) => e.key === 'Enter' && handleAddSkill()}
+                      onKeyPress={(e) => e.key === "Enter" && handleAddSkill()}
                     />
-                    <Button size="sm" onClick={handleAddSkill}>Add</Button>
-                    <Button size="sm" variant="outline" onClick={() => setIsAddingSkill(false)}>
+                    <Button size="sm" onClick={handleAddSkill}>
+                      Add
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => setIsAddingSkill(false)}
+                    >
                       Cancel
                     </Button>
                   </div>
@@ -476,22 +559,30 @@ const Profile = () => {
                 <Label htmlFor="bio">Bio</Label>
                 <Textarea
                   id="bio"
-                  value={editedProfile?.bio || ''}
-                  onChange={(e) => setEditedProfile(prev => prev ? {...prev, bio: e.target.value} : null)}
+                  value={editedProfile?.bio || ""}
+                  onChange={(e) =>
+                    setEditedProfile((prev) =>
+                      prev ? { ...prev, bio: e.target.value } : null
+                    )
+                  }
                   placeholder="Tell us about yourself"
                 />
               </div>
-              
+
               <div>
                 <Label htmlFor="position">Current Position</Label>
                 <Input
                   id="position"
-                  value={editedProfile?.currentPosition || ''}
-                  onChange={(e) => setEditedProfile(prev => prev ? {...prev, currentPosition: e.target.value} : null)}
+                  value={editedProfile?.currentPosition || ""}
+                  onChange={(e) =>
+                    setEditedProfile((prev) =>
+                      prev ? { ...prev, currentPosition: e.target.value } : null
+                    )
+                  }
                   placeholder="Your current role"
                 />
               </div>
-              
+
               <div className="flex space-x-2">
                 <Button onClick={handleSaveProfile}>Save Changes</Button>
                 <Button variant="outline" onClick={() => setIsEditing(false)}>
