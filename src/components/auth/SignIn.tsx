@@ -62,7 +62,7 @@ const SignIn = () => {
           date: "2020-05-15",
         },
       ],
-      cgpa: 3.8,
+      cgpa: 8.8,
     };
 
     login(mockUser);
